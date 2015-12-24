@@ -7,8 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET reset password page. */
-router.get('/resetpassword', function(req, res, next) {
+router.get('/resetpassword/:anything', function(req, res, next) {
   res.render('forgotPassword', { title: 'Express' });
+});
+
+/* GET successful reset password page. */
+router.get('/success/:anything', function(req, res, next) {
+  res.render('passwordSuccess', { title: 'Express' });
 });
 
 module.exports = router;
