@@ -12,7 +12,7 @@ router.get('/resetpassword/:anything', function(req, res, next) {
 });
 
 /* GET successful reset password page. */
-router.get('/success/:anything', function(req, res, next) {
+router.get('/success', function(req, res, next) {
   res.render('passwordSuccess', { title: 'Express' });
 });
 
