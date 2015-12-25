@@ -43,9 +43,12 @@
 	//----------------------------------------------
 	// Validation
 
-  $(".login-button").on('click', function() {
-    console.log('llllll');
-    $("#resetpassword-form").validate({
+  // Form Submission
+  $("#resetpassword-form").submit(function(e) {
+    e.preventDefault();
+  	remove_loading($(this));
+		//$(".login-button").prop({'disabled': true});
+    var passwordValidate = $("#resetpassword-form").validate({
       rules: {
         reg_username: "required",
         reg_password: {
@@ -60,17 +63,22 @@
       },
       errorClass: "form-invalid",
     });
-  });
-
-  // Form Submission
-  $("#resetpassword-form").submit(function() {
-  	remove_loading($(this));
-		//$(".login-button").prop({'disabled': true});
-		if(options['useAJAX'] == true)
+    var token = window.location.href.split('/')[window.location.href.split('/').length -1];
+		if(options['useAJAX'] == true && passwordValidate.form())
 		{
 			// Dummy AJAX request (Replace this with your AJAX code)
 		  // If you don't want to use AJAX, remove this
-  	  dummy_submit_form($(this));
+      form_loading($(this));
+  	  $.ajax({
+        method: "POST",
+        url: "http://localhost:1337/userData/reset/password/"+token,
+        data: { password: $(this).serializeArray()[0].value }
+      }).done(function(data) {
+        form_success($(this));
+        window.location.href = "http://localhost:3000/success"
+      }).fail(function(data) {
+      }).always(function() {
+      });
 		
 		  // Cancel the normal submission.
 		  // If you don't want to use AJAX, remove this
