@@ -7,8 +7,8 @@
 	  'btn-loading': '<i class="fa fa-spinner fa-pulse"></i>',
 	  'btn-success': '<i class="fa fa-check"></i>',
 	  'btn-error': '<i class="fa fa-remove"></i>',
-	  'msg-success': 'All Good! Redirecting...',
-	  'msg-error': 'Wrong login credentials!',
+	  'msg-success': 'All Good! Password updated successfully...',
+	  'msg-error': 'Sorry, this page is no longer valid!',
 	  'useAJAX': true,
   };
 
@@ -43,10 +43,31 @@
 	//----------------------------------------------
 	// Validation
 
+  /*$(".login-button").on('click', function() {
+    console.log('llllll');
+    var apple = $("#resetpassword-form").validate({
+      rules: {
+        reg_username: "required",
+        reg_password: {
+          required: true,
+          minlength: 8
+        },
+        reg_password_confirm: {
+          required: true,
+          minlength: 8,
+          equalTo: "#resetpassword-form [name=reg_password]"
+        }
+      },
+      errorClass: "form-invalid",
+    });
+    console.log('ddddddddd',apple.form());
+  });*/
+
   // Form Submission
   $("#resetpassword-form").submit(function(e) {
     e.preventDefault();
-  	remove_loading($(this));
+    var self = $(this);
+  	//remove_loading(this);
 		//$(".login-button").prop({'disabled': true});
     var passwordValidate = $("#resetpassword-form").validate({
       rules: {
@@ -64,20 +85,26 @@
       errorClass: "form-invalid",
     });
     var token = window.location.href.split('/')[window.location.href.split('/').length -1];
+    console.log('aaaaaaaaa', passwordValidate.form());
+    console.log('$$$$$$ ', window.location.href.split('/')[window.location.href.split('/').length -1]);
 		if(options['useAJAX'] == true && passwordValidate.form())
 		{
 			// Dummy AJAX request (Replace this with your AJAX code)
 		  // If you don't want to use AJAX, remove this
-      form_loading($(this));
+      form_loading(self);
   	  $.ajax({
         method: "POST",
         url: "http://localhost:1337/userData/reset/password/"+token,
-        data: { password: $(this).serializeArray()[0].value }
+        data: { password: self.serializeArray()[0].value }
       }).done(function(data) {
-        form_success($(this));
-        window.location.href = "http://localhost:3000/success"
+        console.log("DID IT!!!!!!!", data);
+        form_success(self);
+        //window.location.href = "http://localhost:3000/success"
       }).fail(function(data) {
+        console.log("failedfailed", data);
+        form_failed(self);
       }).always(function() {
+        console.log("OK$$$????");
       });
 		
 		  // Cancel the normal submission.
