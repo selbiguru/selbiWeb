@@ -19,7 +19,6 @@ a:hover {
   border: 1px solid #fff;
 }
 
-
 /* Image manipulations */
 .app-download {
   border-radius: 5px;
@@ -35,8 +34,14 @@ a:hover {
 }
 
 /* Image manipulations */
-.top {
-  padding-top: 20px;
+.top-padding {
+  padding-top: 15px;
+}
+.terms-use {
+  color: #bfbfbf;
+}
+.privacy-policy {
+  color: #bfbfbf;
 }
 
 /*
@@ -71,7 +76,7 @@ body {
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: top;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.3);
 }
 .cover-container {
   margin-right: auto;
