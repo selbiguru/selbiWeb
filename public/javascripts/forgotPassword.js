@@ -174,7 +174,8 @@
   		form_loading($form);
   		
   		setTimeout(function() {
-  			form_success($form);
+  			//form_success($form);
+        window.location = window.location.href + '/success'
   		}, 2000);
   	}
   }
