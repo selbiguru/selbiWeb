@@ -98,13 +98,13 @@
         data: { password: self.serializeArray()[0].value }
       }).done(function(data) {
         console.log("DID IT!!!!!!!", data);
-        form_success(self);
-        //window.location.href = "http://localhost:3000/success"
+        //form_success(self);
+        window.location = window.location.href + '/success'
       }).fail(function(data) {
         console.log("failedfailed", data);
         form_failed(self);
       }).always(function() {
-        console.log("OK$$$????");
+
       });
 		
 		  // Cancel the normal submission.
@@ -174,8 +174,7 @@
   		form_loading($form);
   		
   		setTimeout(function() {
-  			//form_success($form);
-        window.location = window.location.href + '/success'
+  			form_success($form);
   		}, 2000);
   	}
   }
