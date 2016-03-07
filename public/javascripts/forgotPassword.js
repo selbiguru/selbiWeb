@@ -43,25 +43,6 @@
 	//----------------------------------------------
 	// Validation
 
-  /*$(".login-button").on('click', function() {
-    console.log('llllll');
-    var apple = $("#resetpassword-form").validate({
-      rules: {
-        reg_username: "required",
-        reg_password: {
-          required: true,
-          minlength: 8
-        },
-        reg_password_confirm: {
-          required: true,
-          minlength: 8,
-          equalTo: "#resetpassword-form [name=reg_password]"
-        }
-      },
-      errorClass: "form-invalid",
-    });
-    console.log('ddddddddd',apple.form());
-  });*/
 
   // Form Submission
   $("#resetpassword-form").submit(function(e) {
@@ -85,8 +66,6 @@
       errorClass: "form-invalid",
     });
     var token = window.location.href.split('/')[window.location.href.split('/').length -1];
-    console.log('aaaaaaaaa', passwordValidate.form());
-    console.log('$$$$$$ ', window.location.href.split('/')[window.location.href.split('/').length -1]);
 		if(options['useAJAX'] == true && passwordValidate.form())
 		{
 			// Dummy AJAX request (Replace this with your AJAX code)
@@ -99,9 +78,8 @@
       }).done(function(data) {
         console.log("DID IT!!!!!!!", data);
         //form_success(self);
-        window.location = window.location.href + '/success'
+        window.location = window.location.hostname + '/success'
       }).fail(function(data) {
-        console.log("failedfailed", data);
         form_failed(self);
       }).always(function() {
 
