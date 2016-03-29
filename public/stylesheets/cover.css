@@ -34,8 +34,9 @@ a:hover {
 }
 
 /* Image manipulations */
-.top-padding {
-  padding-top: 35px;
+.image-padding {
+  padding-top: 25px;
+  padding-bottom: 30px;
 }
 .terms-use {
   color: #bfbfbf;
