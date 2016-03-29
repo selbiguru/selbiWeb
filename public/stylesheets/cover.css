@@ -35,7 +35,7 @@ a:hover {
 
 /* Image manipulations */
 .top-padding {
-  padding-top: 15px;
+  padding-top: 35px;
 }
 .terms-use {
   color: #bfbfbf;
@@ -164,6 +164,10 @@ body {
 /*
  * Affix and center
  */
+
+.masthead {
+    height: 50px;
+  }
 
 @media (min-width: 768px) {
   /* Pull out the header and footer */
