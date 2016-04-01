@@ -20,6 +20,10 @@ a:hover {
 }
 
 /* Image manipulations */
+.selbi-logo {
+  border-radius: 5px;
+  height: 110px;
+}
 .app-download {
   border-radius: 5px;
   height: 45px;
