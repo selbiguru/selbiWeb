@@ -16,4 +16,9 @@ router.get('/success', function(req, res, next) {
   res.render('passwordSuccess', { title: 'Selbi' });
 });
 
+/* GET privacy policy page. */
+router.get('/privacy', function(req, res, next) {
+  res.render('privacyPolicy', { title: 'Privacy Policy' });
+});
+
 module.exports = router;
