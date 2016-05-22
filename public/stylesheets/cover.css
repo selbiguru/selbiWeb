@@ -20,6 +20,12 @@ a:hover {
 }
 
 /* Image manipulations */
+.logos {
+  visibility: hidden;
+}
+p.lead.image-padding {
+  visibility: hidden;
+}
 .selbi-logo {
   border-radius: 5px;
   height: 110px;
@@ -46,6 +52,9 @@ a:hover {
   color: #bfbfbf;
 }
 .privacy-policy {
+  color: #bfbfbf;
+}
+.contact-us {
   color: #bfbfbf;
 }
 
