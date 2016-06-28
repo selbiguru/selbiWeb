@@ -73,7 +73,7 @@
       form_loading(self);
   	  $.ajax({
         method: "POST",
-        url: "selbi-server.herokuapp.com/userData/reset/password/"+token,
+        url: "http://selbi-server.herokuapp.com/userData/reset/password/"+token,
         data: { password: self.serializeArray()[0].value }
       }).done(function(data) {
         console.log("DID IT!!!!!!!", data);
